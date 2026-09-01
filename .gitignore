@@ -1,0 +1,11 @@
+/vendor/
+/composer.lock
+/node_modules/
+
+.idea/
+.vscode/
+nbproject/
+*.swp
+.DS_Store
+
+*.log

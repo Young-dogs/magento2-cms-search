@@ -1,0 +1,25 @@
+{
+    "name": "youngdogs/magento2-cms-search",
+    "description": "Adds flexible GraphQL search for CMS pages and CMS blocks (search by content, title, content_heading, and more, with word and exact-phrase matching).",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "YoungDogs"
+        }
+    ],
+    "require": {
+        "php": "~8.4.0||~8.5.0",
+        "magento/module-cms": ">=104.0 <107",
+        "magento/module-store": ">=101.1 <103",
+        "magento/module-graph-ql": ">=100.4 <102"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "YoungDogs\\CmsSearch\\": ""
+        }
+    }
+}

@@ -1,0 +1,106 @@
+# See COPYING.txt for license details
+
+type Query {
+    cmsPageSearch(
+        filter: CmsPageFilterInput
+        pageSize: Int = 20
+        currentPage: Int = 1
+        sort: CmsPageSortInput
+    ): CmsPageSearchResult
+    @resolver(class: "YoungDogs\\CmsSearch\\Model\\Resolver\\CmsPageSearch")
+    @doc(description: "Search CMS pages by identifier, title, content, and other fields. Requires CMS Search to be enabled in Stores > Configuration.")
+
+    cmsBlockSearch(
+        filter: CmsBlockFilterInput
+        pageSize: Int = 20
+        currentPage: Int = 1
+        sort: CmsBlockSortInput
+    ): CmsBlockSearchResult
+    @resolver(class: "YoungDogs\\CmsSearch\\Model\\Resolver\\CmsBlockSearch")
+    @doc(description: "Search CMS blocks by identifier, title, content, and other fields. Requires CMS Search to be enabled in Stores > Configuration.")
+}
+
+input CmsSearchFilterTypeInput {
+    eq: String @doc(description: "Matches the field value exactly.")
+    match: String @doc(description: "Searches for a word or an exact \"quoted phrase\" within the field, similar to a search engine query. Multiple words are combined with AND.")
+    in: [String] @doc(description: "Matches any of the values provided in the array.")
+}
+
+input CmsPageFilterInput {
+    identifier: CmsSearchFilterTypeInput
+    title: CmsSearchFilterTypeInput
+    content: CmsSearchFilterTypeInput
+    content_heading: CmsSearchFilterTypeInput
+    meta_title: CmsSearchFilterTypeInput
+    meta_description: CmsSearchFilterTypeInput
+    meta_keywords: CmsSearchFilterTypeInput
+}
+
+input CmsBlockFilterInput {
+    identifier: CmsSearchFilterTypeInput
+    title: CmsSearchFilterTypeInput
+    content: CmsSearchFilterTypeInput
+}
+
+enum CmsSearchSortDirection {
+    ASC
+    DESC
+}
+
+enum CmsPageSortableField {
+    TITLE
+    IDENTIFIER
+}
+
+enum CmsBlockSortableField {
+    TITLE
+    IDENTIFIER
+}
+
+input CmsPageSortInput {
+    field: CmsPageSortableField
+    direction: CmsSearchSortDirection
+}
+
+input CmsBlockSortInput {
+    field: CmsBlockSortableField
+    direction: CmsSearchSortDirection
+}
+
+type CmsSearchPageInfo {
+    page_size: Int @doc(description: "The number of items returned per page.")
+    current_page: Int @doc(description: "The requested page number.")
+    total_pages: Int @doc(description: "Total number of pages available, given the current page size.")
+}
+
+type CmsPageSearchItem {
+    identifier: String @doc(description: "Identifier of the CMS page.")
+    url_key: String @doc(description: "Same as identifier, kept for parity with core cmsPage query.")
+    title: String
+    content: String
+    content_text: String @doc(description: "Content with HTML tags stripped, leaving plain readable text. Useful for AI/automation consumers.")
+    content_heading: String
+    page_layout: String
+    meta_title: String
+    meta_description: String
+    meta_keywords: String
+}
+
+type CmsBlockSearchItem {
+    identifier: String @doc(description: "Identifier of the CMS block.")
+    title: String
+    content: String
+    content_text: String @doc(description: "Content with HTML tags stripped, leaving plain readable text. Useful for AI/automation consumers.")
+}
+
+type CmsPageSearchResult {
+    items: [CmsPageSearchItem]! @doc(description: "An array of CMS pages matching the search criteria.")
+    page_info: CmsSearchPageInfo!
+    total_count: Int! @doc(description: "Total number of CMS pages matching the search criteria.")
+}
+
+type CmsBlockSearchResult {
+    items: [CmsBlockSearchItem]! @doc(description: "An array of CMS blocks matching the search criteria.")
+    page_info: CmsSearchPageInfo!
+    total_count: Int! @doc(description: "Total number of CMS blocks matching the search criteria.")
+}

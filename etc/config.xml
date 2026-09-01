@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cms_search>
+            <general>
+                <enabled>1</enabled>
+                <max_page_size>100</max_page_size>
+            </general>
+        </cms_search>
+    </default>
+</config>
