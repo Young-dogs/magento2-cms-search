@@ -9,8 +9,8 @@ word/phrase search, or "in list" filtering.
 
 ## Requirements
 
-- PHP ~8.4
-- Magento 2.4.8+ (first version with PHP 8.4 support)
+- PHP 8.2 - 8.5
+- Magento 2.4.6+
 - `Magento_Cms`, `Magento_Store`, `Magento_GraphQl` (installed by default with Magento)
 
 ## Installation
