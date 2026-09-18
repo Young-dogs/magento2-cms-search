@@ -15,8 +15,8 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
  */
 class Config
 {
-    private const XML_PATH_ENABLED = 'cms_search/general/enabled';
-    private const XML_PATH_MAX_PAGE_SIZE = 'cms_search/general/max_page_size';
+    private const XML_PATH_ENABLED = 'yd_cms_search/general/enabled';
+    private const XML_PATH_MAX_PAGE_SIZE = 'yd_cms_search/general/max_page_size';
 
     public function __construct(private readonly ScopeConfigInterface $scopeConfig)
     {

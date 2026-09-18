@@ -1,0 +1,44 @@
+.admin__page-nav._collapsed.youngdogs-tab .title,
+.admin__page-nav._collapsed.youngdogs-tab._show ._collapsible.title {
+    background-image: url('https://static.young-dogs.com/favicon.svg');
+    background-position: 10px center;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    background-size: auto 70%;
+    text-indent: 40px;
+    background-size: auto 50%;
+    text-indent: 35px;
+}
+
+.youngdogs-info-fieldset > legend {
+    display: none;
+}
+
+.youngdogs-info-block {
+    font-size: 2rem;
+    margin: 0 0 2rem;
+}
+
+.youngdogs-info-block .version-title {
+    align-items: center;
+    display: inline-flex;
+}
+
+.youngdogs-info-block .module-version {
+    color: #79a22e;
+    margin: 0 1rem;
+}
+
+.youngdogs-info-block .youngdogs-logo {
+    display: inline-block;
+    height: 30px;
+    margin-left: 1rem;
+    vertical-align: middle;
+    width: auto;
+}
+
+#yd_cms_search_branding {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 0
+}

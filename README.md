@@ -24,11 +24,13 @@ bin/magento cache:flush
 
 ## Configuration
 
-**Stores > Configuration > General > CMS Search**
+**Stores > Configuration > YOUNG-DOGS > CMS Search**
+
+The section is protected by the **Stores > Configuration > CMS Search** ACL permission.
 
 | Field | Description |
 | --- | --- |
-| Enable CMS Search | Yes/No. When disabled, both queries return a GraphQL input error. |
+| Enable module | Yes/No, defaults to Yes. When disabled, both queries return a GraphQL input error. |
 | Maximum Page Size | Hard upper limit applied to `pageSize`, regardless of what the client requests. |
 
 Only **active** pages/blocks belonging to the current store view are returned.
